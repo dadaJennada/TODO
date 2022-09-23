@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/user.css">
+    <title>signed</title>
+</head>
+
+<body>
+    <!-- <button>Signout</button> -->
+    <nav class="navbar navbar-expand-lg navbar-dark nav">
+        <div class="container-fluid">
+            <a class="navbar-brand navtodo" href="#">TODO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active navadd" href='/todo/newnote'>Add Note</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="imghead">
+        <div class="imgdiv">
+            <img class='headimg' src="/imgs_/to-do-list.png">
+        </div>
+        <div class="heading namediv">
+            <h1 class="username">Hello <%=clnt.username%>
+        </div>
+    </div>
+    </h1>
+    <div class="container" id="signup">
+        <div class="row ">
+            <div class="col-3">
+                <form action="/logout" method="get">
+                    <button class="btn btn-primary signup">Logout
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid con">
+        <form action="/todo/signin" method="post">
+            <div class="row head">
+                <div class="col-8">
+                    <h2>Tasks</h2>
+                </div>
+
+                <div class="col-2">
+                    <input type="date" value=<%=dateNow%> name="date">
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn btn-success  show">
+                </div>
+
+            </div>
+        </form>
+        <%for(let note of notes){%>
+            <div class="activity">
+                <div class="row">
+                    <div class="col-10">
+                        <h5>
+                            <%=note.heading%>
+                        </h5>
+                    </div>
+                    <div class="col-2">
+                        <h5>
+                            <%=note.time%>
+                        </h5>
+                    </div>
+                </div>
+                <p>
+                    <%=note.text%>
+                </p>
+            </div>
+            <%}%>
+    </div>
+    <form action='/todo/newnote' method="get">
+        <input type="submit" type="submit" class="btn btn-primary add" value="Add Notes">
+    </form>
+</body>
+
+</html>

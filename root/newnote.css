@@ -1,0 +1,75 @@
+.nav {
+    background-color: #2874A6;
+    font-size: 25px;
+    height: 50px;
+}
+
+.navtodo {
+    margin-left: 80px;
+    margin-right: 60px;
+}
+
+
+.navadd {
+    margin-left: 40px;
+}
+
+body {
+    background-image: url('https://media.istockphoto.com/photos/check-off-completed-tasks-on-a-todo-list-picture-id1011182136?b=1&k=20&m=1011182136&s=170667a&w=0&h=RziXkHmGh9RrumkJEJEdnyDGTdcwpIycU87snPeubpU=');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.body {
+    background-color: #2874A6;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 5%;
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#mainContainer {
+    border: 3px solid black;
+    padding: 30px;
+    width: 700px;
+    margin-top: 50px;
+    margin-left: 0px;
+    font-size: 23px;
+    background-color: white;
+    height: 85%;
+    border-radius: 15px;
+    /* color: tomato; */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    background-color: white;
+    width: 30%;
+    margin-left: 35%;
+    /* color: violet; */
+    /* border: 2px;
+    border: 4px solid black; */
+    padding: 5px;
+    border-radius: 40px;
+}
+
+.img {
+    margin-top: 20px;
+    width: 600px;
+    height: 95%;
+    margin-right: 0px;
+    margin-left: 100px;
+    /* border: 3px solid black; */
+}
+
+.headimg {
+    width: 50px;
+    height: 50px;
+}
+
+.form-control {
+    border-color: black;
+}
