@@ -36,6 +36,40 @@ app.get('/', (req, res) => {
     res.render('app')
 })
 
+app.get('/user/checkbox/:username/:date/:id',async(req,res)=>{
+    // const {useranme} = req.params;
+    console.log(req.params);
+    username = req.params.username;
+    const clnt = await Client.findOne({username}).populate('notes');
+    let notes = clnt.notes;
+    let reqNotes = [];
+    for(let note of notes){
+        if(note.id==req.params.id){
+            if(note.done==1){
+                note.done = 0;
+                console.log(note.done);
+            }
+            else{
+                note.done=1;
+                console.log(note.done);
+            }
+            await note.save();
+            clnt.notes = notes;
+            await clnt.save();
+            break;
+        }
+    }
+    for(let note of notes){
+        if(note.date==req.params.date){
+            reqNotes.push(note);
+        }
+    }
+    console.log(reqNotes);
+    notes = reqNotes;
+    const dateNow = req.params.date;
+    res.render('user',{clnt,notes,dateNow})
+    // res.render('/todo/signin');
+})
 
 app.post('/todo/signin', async (req, res) => {
     console.log('TO the signup page');
