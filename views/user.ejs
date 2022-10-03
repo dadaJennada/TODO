@@ -10,6 +10,14 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="/user.css">
     <title>signed</title>
+     <script>
+        function checkBox(username,datenow,id)
+        {
+            console.log(datenow)
+            const destination = '/user/checkbox/<%=clnt.username%>/<%=dateNow%>/'+id;
+            window.location.href=destination;
+        }
+    </script>
 </head>
 
 <body>
@@ -78,7 +86,7 @@
         <%for(let note of notes){%>
             <div class="activity">
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-8">
                         <h5>
                             <%=note.heading%>
                         </h5>
@@ -87,6 +95,12 @@
                         <h5>
                             <%=note.time%>
                         </h5>
+                    </div>
+                    <div class="col-2">
+                        <form action="user/checkbox/:<%=clnt.username%>" method='post'>
+                            <laber for="done">Done</laber>
+                            <input type="checkbox" id=<%=note.id%> onclick='checkBox("<%=clnt.username%>","<%=dateNow%>",this.id)' id="done" <%=note.done?'checked':""%>>
+                        </form>
                     </div>
                 </div>
                 <p>
