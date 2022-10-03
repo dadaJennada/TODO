@@ -87,6 +87,10 @@ h1 {
     text-decoration: underline;
 }
 
+.activity .col-2{
+    text-align: right;
+}
+
 .add {
     margin-left: 89.2%;
     border-color: black;
